@@ -51,8 +51,9 @@ const AddJob = () => {
           body: JSON.stringify({
             ...addData,
             qualifications: addData.qualifications
-              .split("\n")
-              .filter((q) => q.trim() !== ""),
+              .split(/[\n,\.]+/)
+              .map((q) => q.trim())
+              .filter((q) => q !== ""),
           }),
         },
       );
