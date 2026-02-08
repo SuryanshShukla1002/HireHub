@@ -41,18 +41,21 @@ const AddJob = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/job", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await fetch(
+        "https://hire-hub-backend-pi.vercel.app/api/job",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...addData,
+            qualifications: addData.qualifications
+              .split("\n")
+              .filter((q) => q.trim() !== ""),
+          }),
         },
-        body: JSON.stringify({
-          ...addData,
-          qualifications: addData.qualifications
-            .split("\n")
-            .filter((q) => q.trim() !== ""),
-        }),
-      });
+      );
 
       if (!res.ok) {
         setToastMsg("Failed to post job");

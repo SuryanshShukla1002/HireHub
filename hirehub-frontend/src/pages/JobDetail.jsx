@@ -7,7 +7,9 @@ const JobDetail = () => {
 
   const handleSpecificData = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/job/${detaildId}`);
+      const res = await fetch(
+        `https://hire-hub-backend-pi.vercel.app/api/job/${detaildId}`,
+      );
 
       if (!res.ok) {
         console.log("Fail to fetch a specific data");

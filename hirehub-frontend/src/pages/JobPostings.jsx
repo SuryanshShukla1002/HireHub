@@ -12,9 +12,12 @@ const JobPostings = () => {
   const handleFetchJobPost = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:3000/api/job", {
-        method: "GET",
-      });
+      const res = await fetch(
+        "https://hire-hub-backend-pi.vercel.app/api/job",
+        {
+          method: "GET",
+        },
+      );
 
       if (!res.ok) {
         console.log("Fail to fetch the data");
@@ -36,9 +39,12 @@ const JobPostings = () => {
 
   const handleDeleteJobPost = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/job/${id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://hire-hub-backend-pi.vercel.app/api/job/${id}`,
+        {
+          method: "DELETE",
+        },
+      );
 
       if (res.ok) {
         setFilteredJobs((prev) => prev.filter((prevs) => prevs._id !== id));
