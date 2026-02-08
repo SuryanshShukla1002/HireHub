@@ -10,6 +10,7 @@ app.use(
     cors({
         origin: [
             "http://localhost:5173",
+            "https://hire-hub-olive-ten.vercel.app"
         ],
         credentials: true,
     })
